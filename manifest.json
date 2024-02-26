@@ -3,7 +3,7 @@
   "name": "Ban Tailwind",
   "version": "1.0",
   "description": "Detects if a page is using Tailwind CSS and alerts the user.",
-  "permissions": ["activeTab", "tabs", "scripting"],
+  "permissions": ["activeTab", "tabs", "scripting", "storage"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"

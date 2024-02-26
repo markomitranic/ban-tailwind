@@ -1,33 +1,42 @@
-let isEnabled = true;
+// Ensure the initial value is set.
+chrome.storage.local.get("isEnabled", ({ isEnabled }) => {
+  if (isEnabled === undefined) chrome.storage.local.set({ isEnabled: true });
+});
 
 chrome.action.onClicked.addListener((tab) => {
-  isEnabled = !isEnabled; // Toggle the enabled state
-  changeIcon(isEnabled, tab.id);
+  chrome.storage.local.get("isEnabled", ({ isEnabled }) => {
+    chrome.storage.local.set({ isEnabled: !isEnabled }, () => {
+      updateIcon(!isEnabled, tab.id);
+    });
+  });
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  changeIcon(isEnabled, tab.id);
-
-  if (changeInfo.status === "complete" && tab.active && isEnabled) {
-    chrome.scripting.executeScript(
-      {
-        target: { tabId: tabId },
-        function: detectTailwindCSS,
-      },
-      (results) => {
-        if (results && results[0].result) {
-          // Tailwind CSS is detected, inject the content script to show a notification
-          chrome.scripting.executeScript({
+  if (changeInfo.status === "complete" && tab.active) {
+    chrome.storage.local.get("isEnabled", ({ isEnabled }) => {
+      updateIcon(isEnabled, tab.id);
+      if (isEnabled === true) {
+        chrome.scripting.executeScript(
+          {
             target: { tabId: tabId },
-            files: ["content-script.js"],
-          });
-        }
+            function: detectTailwindCSS,
+          },
+          (results) => {
+            if (results && results[0].result) {
+              // Tailwind CSS is detected, inject the content script to show a notification
+              chrome.scripting.executeScript({
+                target: { tabId: tabId },
+                files: ["content-script.js"],
+              });
+            }
+          }
+        );
       }
-    );
+    });
   }
 });
 
-function changeIcon(isEnabled, tabId) {
+function updateIcon(isEnabled, tabId) {
   if (isEnabled) {
     // The extension is enabled, set the active icon
     chrome.action.setIcon({
