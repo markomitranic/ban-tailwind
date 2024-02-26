@@ -26,16 +26,16 @@
         </svg>
         <strong style="font-weight:800;">HUGE DANGER! Tailwind Detected. 😂</strong>
       </p>
-      <a href="https://tailwindcss.com/" style="text-decoration: underline;">Learn more about the dangers of Tailwind ></a>
+      <a href="https://tailwindcss.com/" style="color: white; text-decoration: underline;">Learn more about the dangers of Tailwind ></a>
     </div>
     <div style="color: #cecece; font-size: 12px; max-width: 600px;">
       <p><strong>Tailwind is CSS.</strong> It is widely praised for being modern and modular - but more importantly, Tailwind is a new, simpler way of looking at CSS.</p>
       <p style="margin-top: 12px;">It is the only CSS framework that effortlessly scales to huge projects, by making onboarding, performance and maintenance overhead issues go away. Further reading:</p>
       <ul style="list-style-type: circle; padding-left: 20px; margin-top: 20px; margin-bottom: 20px;">
-        <li><a href="https://www.youtube.com/watch?v=lHZwlzOUOZ4">Fireship - Tailwind in 100 seconds ></a></li>
-        <li><a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">CSS Utility Classes and "Separation of Concerns" ></a></li>
-        <li><a href="https://www.youtube.com/watch?v=5MKw-wOpJR8">Theo T3 - My Tailwind Journey ></a></li>
-        <li><a href="https://www.youtube.com/watch?v=t-eR4hA7obg">ThePrimeTimeagen - Tailwind Is Ugly Code But.... ></a></li>
+        <li><a style="color: white; text-decoration: underline;" href="https://www.youtube.com/watch?v=lHZwlzOUOZ4">Fireship - Tailwind in 100 seconds ></a></li>
+        <li><a style="color: white; text-decoration: underline;" href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">CSS Utility Classes and "Separation of Concerns" ></a></li>
+        <li><a style="color: white; text-decoration: underline;" href="https://www.youtube.com/watch?v=5MKw-wOpJR8">Theo T3 - My Tailwind Journey ></a></li>
+        <li><a style="color: white; text-decoration: underline;" href="https://www.youtube.com/watch?v=t-eR4hA7obg">ThePrimeTimeagen - Tailwind Is Ugly Code But.... ></a></li>
       </ul>
     </div>
     <div style="color: #cecece; font-size: 12px; max-width: 600px;">
